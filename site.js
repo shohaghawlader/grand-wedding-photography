@@ -81,6 +81,66 @@
     }
   }
 
+  // Homepage service slider
+  const serviceSlider = $('[data-service-slider]');
+  if (serviceSlider) {
+    const slides = $$('.service-slide', serviceSlider);
+    const dots = $$('.service-dots button', serviceSlider);
+    const prev = $('.service-prev', serviceSlider);
+    const next = $('.service-next', serviceSlider);
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let timer = null;
+
+    const show = value => {
+      index = (value + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    };
+    const start = () => {
+      if (reduceMotion || slides.length < 2) return;
+      clearInterval(timer);
+      timer = setInterval(() => show(index + 1), 5000);
+    };
+    prev?.addEventListener('click', () => { show(index - 1); start(); });
+    next?.addEventListener('click', () => { show(index + 1); start(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
+    start();
+  }
+
+  // Homepage client review slider. Text remains clearly marked until verified reviews are supplied.
+  const reviewSlider = $('[data-review-slider]');
+  if (reviewSlider) {
+    const slides = $$('.review-slide', reviewSlider);
+    const backgrounds = $$('.review-backgrounds img', reviewSlider);
+    const dots = $$('.review-dots button', reviewSlider);
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let timer = null;
+
+    const show = value => {
+      index = (value + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+      backgrounds.forEach((image, i) => image.classList.toggle('is-active', i === index));
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    };
+    const start = () => {
+      if (reduceMotion || slides.length < 2) return;
+      clearInterval(timer);
+      timer = setInterval(() => show(index + 1), 6500);
+    };
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
+    start();
+  }
+
   // Reveal animation, progressive-enhancement safe
   const revealAll = () => $$('.reveal').forEach(el => el.classList.add('in'));
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
