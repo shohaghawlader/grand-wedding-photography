@@ -479,9 +479,9 @@ input,select,textarea{width:100%;border:1px solid #d8cec0;background:#fff;paddin
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:#25D366;
-  color:#fff;
-  box-shadow:0 12px 30px rgba(0,0,0,.24);
+  background:transparent;
+  color:inherit;
+  box-shadow:0 10px 26px rgba(0,0,0,.18);
   transition:transform .2s ease,box-shadow .2s ease;
 }
 .whatsapp-float:hover{
@@ -492,8 +492,8 @@ input,select,textarea{width:100%;border:1px solid #d8cec0;background:#fff;paddin
   outline:3px solid #fff;
   outline-offset:3px;
 }
-.whatsapp-float svg{width:31px;height:31px;display:block;fill:currentColor}
+.whatsapp-float img{width:100%;height:100%;display:block;object-fit:contain;border-radius:22%;}
 @media (max-width:640px){
   .whatsapp-float{right:16px;bottom:18px;width:56px;height:56px}
-  .whatsapp-float svg{width:29px;height:29px}
+  .whatsapp-float img{width:100%;height:100%}
 }
