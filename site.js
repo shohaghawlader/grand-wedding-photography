@@ -464,6 +464,19 @@
     });
   }
 
+  // Persistent WhatsApp contact button on every page
+  if (!document.querySelector('.whatsapp-float')) {
+    const whatsappFloat = document.createElement('a');
+    whatsappFloat.className = 'whatsapp-float';
+    whatsappFloat.href = `https://wa.me/${GW.brand.whatsapp}`;
+    whatsappFloat.target = '_blank';
+    whatsappFloat.rel = 'noopener';
+    whatsappFloat.setAttribute('aria-label', 'Chat with Grand Wedding Photography on WhatsApp');
+    whatsappFloat.title = 'Chat on WhatsApp';
+    whatsappFloat.innerHTML = `<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M19.11 17.44c-.26-.13-1.53-.75-1.77-.84-.24-.09-.41-.13-.59.13-.17.26-.68.84-.83 1.01-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.29-.77-.68-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.59-1.42-.81-1.95-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.45.07-.68.32-.24.26-.9.88-.9 2.14 0 1.27.92 2.49 1.05 2.66.13.17 1.81 2.76 4.39 3.87.61.26 1.09.42 1.46.54.61.19 1.17.17 1.61.1.49-.07 1.53-.62 1.74-1.22.21-.6.21-1.12.15-1.22-.06-.11-.24-.17-.5-.3zM16.04 3C8.87 3 3.06 8.81 3.06 15.98c0 2.29.6 4.53 1.73 6.5L3 29l6.7-1.76a12.94 12.94 0 0 0 6.33 1.61h.01c7.16 0 12.98-5.81 12.98-12.98S23.2 3 16.04 3zm0 23.66h-.01a10.74 10.74 0 0 1-5.48-1.5l-.39-.23-3.98 1.04 1.06-3.88-.25-.4a10.76 10.76 0 1 1 9.05 4.97z"/></svg>`;
+    document.body.appendChild(whatsappFloat);
+  }
+
   // Contact form -> WhatsApp message
   if (page === 'contact') {
     const form = $('#contactForm');
