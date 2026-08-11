@@ -56,7 +56,7 @@
       if (!progress || reduceMotion) return;
       progress.style.animation = 'none';
       void progress.offsetWidth;
-      progress.style.animation = 'gwHeroProgress 2s linear infinite';
+      progress.style.animation = 'gwHeroProgress 10s linear infinite';
     };
 
     const showHeroSlide = index => {
@@ -68,13 +68,13 @@
     };
 
     if (!reduceMotion && slides.length > 1) {
-      heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1), 2000);
+      heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1), 10000);
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           clearInterval(heroTimer);
           heroTimer = null;
         } else if (!heroTimer) {
-          heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1), 2000);
+          heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1), 10000);
           restartHeroProgress();
         }
       });

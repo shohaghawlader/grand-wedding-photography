@@ -25,3 +25,8 @@ Contact
 WhatsApp: 01798-060902
 Email: Grandweddingphotographybd@gmail.com
 Address: 26/1 1st lane Dhaka 1205, Dhaka, Bangladesh
+
+Latest homepage update
+- Home page no longer contains package preview sections or video/film sections.
+- Home hero slideshow changes every 10 seconds.
+- Mobile navigation uses a fully opaque full-viewport background, including on the Book page.
